@@ -1,6 +1,6 @@
 {
   "shipped_model": "count_nb",
-  "nb_alpha": 0.05,
+  "cv": "5-fold stratified k-fold, shuffled, random_state=42",
   "train_rows": 5587,
   "test_rows": 0,
   "train_source": "synthetic bootstrap from lexicon.json (generate.py)",
@@ -17,124 +17,139 @@
     "Transport"
   ],
   "models": {
-    "baseline_most_frequent": {
-      "cv_macro_f1_train": 0.0132
-    },
     "count_nb": {
-      "cv_macro_f1_train": 0.3399
+      "cv_accuracy_train": 0.9746,
+      "cv_accuracy_std": 0.0032
     },
-    "tfidf_logreg": {
-      "cv_macro_f1_train": 0.3518
+    "logistic_regression": {
+      "cv_accuracy_train": 0.9998,
+      "cv_accuracy_std": 0.0004
+    },
+    "decision_tree": {
+      "cv_accuracy_train": 0.9042,
+      "cv_accuracy_std": 0.0109
+    },
+    "knn": {
+      "cv_accuracy_train": 0.2577,
+      "cv_accuracy_std": 0.0163
+    },
+    "random_forest": {
+      "cv_accuracy_train": 0.9535,
+      "cv_accuracy_std": 0.0067
+    },
+    "gradient_boosting": {
+      "cv_accuracy_train": 0.9993,
+      "cv_accuracy_std": 0.0009
     }
   },
   "top_terms": {
     "Academic": [
       "university",
-      "fees",
       "cyber",
       "textbook",
-      "bookpoint",
-      "textbooks",
-      "savanis",
-      "certificate",
+      "fees",
+      "books",
+      "bookshop",
+      "campus",
       "school",
-      "strathmore"
+      "stationery",
+      "savanis"
     ],
     "Airtime & Data": [
       "bundle",
+      "internet",
       "data",
       "fibre",
-      "internet",
-      "sim",
-      "airtime",
       "safaricom",
       "bundles",
-      "zuku",
-      "daily"
+      "airtime",
+      "sim",
+      "purchase",
+      "wifi"
     ],
     "Entertainment": [
-      "youtube",
-      "cinema",
-      "club",
-      "karaoke",
-      "alcohol",
-      "anga",
+      "boomplay",
+      "event",
+      "steam",
       "wines",
-      "concert",
-      "century",
-      "spotify"
+      "cinemax",
+      "startimes",
+      "youtube",
+      "anga",
+      "club",
+      "betika"
     ],
     "Food": [
       "pizza",
+      "chicken",
       "inn",
       "food",
-      "chicken",
-      "artcaffe",
-      "mboga",
-      "nyama",
-      "magunas",
-      "bakery",
-      "kibanda"
+      "jaza",
+      "kenchic",
+      "chapati",
+      "chandarana",
+      "choma",
+      "king"
     ],
     "Health": [
       "hospital",
       "medical",
-      "pathologists",
-      "healthcare",
-      "test",
+      "aga",
+      "therapy",
+      "aid",
+      "x",
       "health",
-      "antibiotics",
-      "panadol",
-      "dental",
-      "glasses"
+      "insurance",
+      "healthcare",
+      "chemist"
     ],
     "Other": [
       "bank",
       "loan",
       "kcb",
       "repayment",
-      "absa",
-      "contribution",
-      "equity",
-      "family",
-      "ecitizen",
-      "e"
+      "zenka",
+      "government",
+      "wedding",
+      "withdraw",
+      "charity",
+      "citizen"
     ],
     "Personal Care": [
       "dry",
-      "woolworths",
-      "wig",
-      "mitumba",
-      "clothes",
-      "deodorant",
-      "cosmetics",
-      "workout",
-      "bata",
-      "kinyozi"
+      "kilimall",
+      "kinyozi",
+      "laundromat",
+      "sneakers",
+      "skincare",
+      "laundry",
+      "tailor",
+      "salon",
+      "cobbler"
     ],
     "Rent": [
       "gas",
-      "kplc",
       "water",
       "rent",
+      "kplc",
+      "token",
+      "property",
       "deposit",
       "room",
-      "token",
       "house",
-      "property",
-      "garbage"
+      "electricity"
     ],
     "Transport": [
       "coach",
-      "cab",
-      "metro",
-      "fare",
-      "expressway",
-      "bus",
-      "energy",
-      "ride",
       "uber",
-      "bolt"
+      "bolt",
+      "bus",
+      "cab",
+      "fare",
+      "ride",
+      "energy",
+      "expressway",
+      "metro"
     ]
   }
 }

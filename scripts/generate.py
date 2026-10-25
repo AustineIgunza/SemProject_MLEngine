@@ -5,9 +5,8 @@ generator expands the hand-built merchant lexicon into realistic M-Pesa-style
 descriptions. The model is then evaluated on REAL labelled statements
 (data/test_real.csv), which tells us whether this bootstrap generalises.
 
-Each row also carries the source `keyword`, so train.py can cross-validate with
-GroupKFold — a fold never sees a merchant it is tested on, which keeps the CV
-score from being inflated by near-duplicate rows.
+Each row also carries the source `keyword`, recording which lexicon entry
+produced it. It is not a feature.
 
 Usage:  python scripts/generate.py
 """
@@ -106,7 +105,7 @@ def main() -> None:
     random.shuffle(rows)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator="\n")
         writer.writerow(["description", "amount", "category", "keyword"])
         writer.writerows(rows)
 

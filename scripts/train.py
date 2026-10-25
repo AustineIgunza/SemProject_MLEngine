@@ -2,11 +2,13 @@
 
   train: data/train.csv      (generate.py)
   test:  data/test_real.csv  (optional — hand-labelled M-Pesa rows, never used
-                              for fitting or tuning; alpha is tuned by CV on train)
+                              for fitting)
 
-Ships CountVectorizer + MultinomialNB: integer counts port to TypeScript in a
-few lines. TF-IDF + LogReg is trained only as a comparison and its gap is
-recorded in metrics.json so it can be reported honestly.
+Ships CountVectorizer + MultinomialNB with default smoothing: integer counts
+port to TypeScript in a few lines. The other taught models (Logistic Regression,
+Decision Tree, K-Nearest Neighbours, Random Forest, Gradient Boosting) go
+through the same pipeline and the same folds as a comparison, and their scores
+are recorded in metrics.json so they can be reported honestly.
 
 Usage:  python scripts/train.py
 """
@@ -17,19 +19,23 @@ from pathlib import Path
 import joblib
 import numpy as np
 import pandas as pd
-from sklearn.dummy import DummyClassifier
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
-from sklearn.model_selection import GridSearchCV, GroupKFold, cross_val_score
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score
+from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.pipeline import Pipeline
+from sklearn.tree import DecisionTreeClassifier
 
 from features import to_document, vectorizer_kwargs
 
 ROOT = Path(__file__).resolve().parent.parent
 TRAIN, TEST, OUT = ROOT / "data/train.csv", ROOT / "data/test_real.csv", ROOT / "out"
-CV = GroupKFold(n_splits=5)  # grouped by keyword: no merchant in both train and val
+# Same 5 folds as notebooks/NaiveBayes_Base.ipynb. The nine classes are near-balanced,
+# so accuracy is a fair metric; random guessing would score about 1/9 = 11%.
+CV = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
 
 def load(path: Path) -> pd.DataFrame:
@@ -38,12 +44,23 @@ def load(path: Path) -> pd.DataFrame:
     return df
 
 
+def pipeline(clf) -> Pipeline:
+    return Pipeline([("vec", CountVectorizer(**vectorizer_kwargs())), ("clf", clf)])
+
+
+def per_class(y_true, y_pred, classes: list[str]) -> pd.DataFrame:
+    return pd.DataFrame({
+        "precision": precision_score(y_true, y_pred, labels=classes, average=None, zero_division=0),
+        "recall": recall_score(y_true, y_pred, labels=classes, average=None, zero_division=0),
+        "rows": pd.Series(y_true).value_counts().reindex(classes, fill_value=0).values,
+    }, index=classes).round(4)
+
+
 def evaluate(model, test: pd.DataFrame, classes: list[str]) -> dict:
     pred = model.predict(test["doc"])
     return {
         "accuracy": round(accuracy_score(test["category"], pred), 4),
-        "macro_f1": round(f1_score(test["category"], pred, labels=classes, average="macro", zero_division=0), 4),
-        "report": classification_report(test["category"], pred, labels=classes, output_dict=True, zero_division=0),
+        "per_class": per_class(test["category"], pred, classes).to_dict(orient="index"),
     }
 
 
@@ -70,23 +87,21 @@ def main() -> None:
         if unknown:
             raise SystemExit(f"test_real.csv has unknown categories: {sorted(unknown)}")
 
-    X, y, groups = train["doc"], train["category"], train["keyword"]
-    nb = Pipeline([("vec", CountVectorizer(**vectorizer_kwargs())), ("clf", MultinomialNB())])
-    search = GridSearchCV(nb, {"clf__alpha": [0.01, 0.05, 0.1, 0.5, 1.0]}, cv=CV, scoring="f1_macro")
-    search.fit(X, y, groups=groups)
-    nb = search.best_estimator_
+    X, y = train["doc"], train["category"]
+    nb = pipeline(MultinomialNB())  # default smoothing (alpha = 1)
 
     models = {
-        "baseline_most_frequent": Pipeline([("vec", CountVectorizer(**vectorizer_kwargs())),
-                                            ("clf", DummyClassifier(strategy="most_frequent"))]),
         "count_nb": nb,
-        "tfidf_logreg": Pipeline([("vec", TfidfVectorizer(**vectorizer_kwargs())),
-                                  ("clf", LogisticRegression(max_iter=1000, class_weight="balanced"))]),
+        "logistic_regression": pipeline(LogisticRegression(max_iter=1000)),
+        "decision_tree": pipeline(DecisionTreeClassifier(random_state=42)),
+        "knn": pipeline(KNeighborsClassifier()),
+        "random_forest": pipeline(RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=-1)),
+        "gradient_boosting": pipeline(GradientBoostingClassifier(random_state=42)),
     }
 
     metrics = {
         "shipped_model": "count_nb",
-        "nb_alpha": search.best_params_["clf__alpha"],
+        "cv": "5-fold stratified k-fold, shuffled, random_state=42",
         "train_rows": len(train),
         "test_rows": 0 if test is None else len(test),
         "train_source": "synthetic bootstrap from lexicon.json (generate.py)",
@@ -95,23 +110,19 @@ def main() -> None:
         "models": {},
     }
     for name, model in models.items():
-        cv = cross_val_score(model, X, y, groups=groups, cv=CV, scoring="f1_macro")
-        model.fit(X, y)
-        entry = {"cv_macro_f1_train": round(float(cv.mean()), 4)}
+        cv = cross_val_score(model, X, y, cv=CV, scoring="accuracy", n_jobs=-1)
+        entry = {"cv_accuracy_train": round(float(cv.mean()), 4), "cv_accuracy_std": round(float(cv.std()), 4)}
         if test is not None:
+            model.fit(X, y)
             entry["real_test"] = evaluate(model, test, classes)
         metrics["models"][name] = entry
-        print(f"\n== {name}  CV macro-F1 (train, grouped by keyword): {entry['cv_macro_f1_train']}")
+        print(f"\n== {name:<20} CV accuracy (train, 5-fold stratified): {entry['cv_accuracy_train']}")
         if test is not None:
-            rt = entry["real_test"]
-            print(f"   REAL test accuracy {rt['accuracy']}  macro-F1 {rt['macro_f1']}")
-            print(classification_report(test["category"], model.predict(test["doc"]),
-                                        labels=classes, zero_division=0))
+            print(f"   REAL test accuracy {entry['real_test']['accuracy']}")
+            print(per_class(test["category"], model.predict(test["doc"]), classes).to_string())
 
+    nb.fit(X, y)
     if test is not None:
-        nb_f1 = metrics["models"]["count_nb"]["real_test"]["macro_f1"]
-        lr_f1 = metrics["models"]["tfidf_logreg"]["real_test"]["macro_f1"]
-        metrics["logreg_minus_nb_macro_f1"] = round(lr_f1 - nb_f1, 4)
         cm = confusion_matrix(test["category"], nb.predict(test["doc"]), labels=classes)
         pd.DataFrame(cm, index=classes, columns=classes).to_csv(OUT / "confusion_matrix.csv")
 
@@ -119,7 +130,7 @@ def main() -> None:
     OUT.mkdir(exist_ok=True)
     (OUT / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
     joblib.dump(nb, OUT / "categoriser.pkl")
-    print(f"\nbest NB alpha = {metrics['nb_alpha']}. Wrote out/metrics.json, out/categoriser.pkl"
+    print("\nShipped count_nb (MultinomialNB, default smoothing). Wrote out/metrics.json, out/categoriser.pkl"
           + (", out/confusion_matrix.csv" if test is not None else ""))
     for cls, terms in metrics["top_terms"].items():
         print(f"  {cls:<16} {', '.join(terms)}")

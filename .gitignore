@@ -6,3 +6,9 @@ __pycache__/
 
 # Regenerable binary artefact (python train.py)
 out/*.pkl
+
+# Local demo notes, not part of the submission
+DEMO.md
+
+# Never commit bank or M-Pesa statements, wherever they are saved
+*.pdf
