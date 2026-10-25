@@ -22,6 +22,7 @@ pure TypeScript.
 | `scripts/extract.py` | Pulls money-out rows from M-Pesa PDF statements and anonymises them |
 | `scripts/train.py` | Baseline vs Count+NB vs TF-IDF+LogReg; tunes NB alpha by CV; evaluates on real data |
 | `scripts/export.py` | Serialises the NB model to `out/model.json` for the TypeScript runtime |
+| `scripts/predict.py` | Classifies a description + amount with `out/model.json` — pure Python, no sklearn, matches the TypeScript runtime |
 | `scripts/agreement.py` | Cohen's kappa between two labellers on the overlap rows |
 | `scripts/features.py` | Text preprocessing — **must match** the app's `server/src/modules/categoriser/text.ts` |
 
