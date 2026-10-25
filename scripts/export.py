@@ -5,7 +5,7 @@ Express server can classify in-process with no Python and no extra dependency.
 Copy out/model.json (and out/parity.json) into the app's
 server/src/modules/categoriser/ to ship a retrained model.
 
-Usage:  python export.py
+Usage:  python scripts/export.py
 """
 
 import json
@@ -18,7 +18,7 @@ import pandas as pd
 
 from features import AMOUNT_BUCKETS, NGRAM_RANGE, to_document
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parent.parent
 PKL = ROOT / "out" / "categoriser.pkl"
 TRAIN = ROOT / "data" / "train.csv"
 OUT = ROOT / "out" / "model.json"

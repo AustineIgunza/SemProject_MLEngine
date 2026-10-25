@@ -6,7 +6,7 @@ amount. Training runs on a laptop; the output is
 one JSON file named out/model.json that the Akiba Express server loads and runs in
 pure TypeScript.
 
-`Expenses_Exploration.ipynb` is the dataset exploration.
+`notebooks/Expenses_Exploration.ipynb` is the dataset exploration.
 
 
 
@@ -15,13 +15,16 @@ pure TypeScript.
 
 | File | Purpose |
 |---|---|
+| `notebooks/Expenses_Exploration.ipynb` | Deliverable 1 — exploration of the Kaggle `Expenses_clean.csv` dataset |
+| `notebooks/NaiveBayes_Base.ipynb` | Deliverable 2 — base model: data cleaning, EDA, Multinomial Naive Bayes, model comparison |
 | `lexicon.json` | Hand-built merchant/keyword list per category — **the quality of the whole model rests on this** |
-| `generate.py` | Expands the lexicon into M-Pesa-style training rows (bootstrap; seeded, reproducible) |
-| `extract.py` | Pulls money-out rows from M-Pesa PDF statements and anonymises them |
-| `train.py` | Baseline vs Count+NB vs TF-IDF+LogReg; tunes NB alpha by CV; evaluates on real data |
-| `export.py` | Serialises the NB model to `out/model.json` for the TypeScript runtime |
-| `agreement.py` | Cohen's kappa between two labellers on the overlap rows |
-| `features.py` | Text preprocessing — **must match** the app's `server/src/modules/categoriser/text.ts` |
+| `scripts/generate.py` | Expands the lexicon into M-Pesa-style training rows (bootstrap; seeded, reproducible) |
+| `scripts/extract.py` | Pulls money-out rows from M-Pesa PDF statements and anonymises them |
+| `scripts/train.py` | Baseline vs Count+NB vs TF-IDF+LogReg; tunes NB alpha by CV; evaluates on real data |
+| `scripts/export.py` | Serialises the NB model to `out/model.json` for the TypeScript runtime |
+| `scripts/predict.py` | Classifies a description + amount with `out/model.json` — pure Python, no sklearn, matches the TypeScript runtime |
+| `scripts/agreement.py` | Cohen's kappa between two labellers on the overlap rows |
+| `scripts/features.py` | Text preprocessing — **must match** the app's `server/src/modules/categoriser/text.ts` |
 
 ## Categories
 

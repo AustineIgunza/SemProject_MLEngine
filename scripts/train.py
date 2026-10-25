@@ -8,7 +8,7 @@ Ships CountVectorizer + MultinomialNB: integer counts port to TypeScript in a
 few lines. TF-IDF + LogReg is trained only as a comparison and its gap is
 recorded in metrics.json so it can be reported honestly.
 
-Usage:  python train.py
+Usage:  python scripts/train.py
 """
 
 import json
@@ -27,7 +27,7 @@ from sklearn.pipeline import Pipeline
 
 from features import to_document, vectorizer_kwargs
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parent.parent
 TRAIN, TEST, OUT = ROOT / "data/train.csv", ROOT / "data/test_real.csv", ROOT / "out"
 CV = GroupKFold(n_splits=5)  # grouped by keyword: no merchant in both train and val
 
