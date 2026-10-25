@@ -105,7 +105,7 @@ def main() -> None:
     random.shuffle(rows)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator="\n")
         writer.writerow(["description", "amount", "category", "keyword"])
         writer.writerows(rows)
 

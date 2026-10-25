@@ -34,8 +34,6 @@ python scripts/export.py          # out/model.json, out/parity.json
 python scripts/predict.py "chicken inn" 650
 ```
 
-To run the notebooks, also `pip install matplotlib jupyter`.
-
 ## Reading the numbers
 
 `out/metrics.json` reports 5-fold stratified cross-validation accuracy, with the same folds for every
