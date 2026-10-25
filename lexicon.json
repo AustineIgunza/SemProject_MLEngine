@@ -1,0 +1,81 @@
+{
+  "Food": [
+    "naivas", "quickmart", "carrefour", "chandarana", "cleanshelf", "magunas", "eastmatt", "jaza",
+    "java", "artcaffe", "cafe deli", "kfc", "chicken inn", "pizza inn", "galitos", "debonairs",
+    "dominos", "pizza hut", "burger king", "subway", "steers", "big square", "kenchic", "simbisa",
+    "glovo", "uber eats", "bolt food", "pizza", "chicken", "mess", "cafeteria", "canteen",
+    "kibanda", "chapati", "mandazi", "mutura", "smokie", "mboga", "sukuma", "butchery",
+    "nyama choma", "bakery", "bread", "milk", "unga", "groceries", "grocery", "supermarket",
+    "restaurant", "fast food", "takeaway", "lunch", "breakfast", "supper", "snacks", "fruits"
+  ],
+  "Rent": [
+    "rent", "house rent", "hostel", "hostels", "landlord", "caretaker", "kplc", "kplc prepaid",
+    "kplc token", "token", "tokens", "electricity", "power", "water", "water bill", "nairobi water",
+    "service charge", "garbage", "deposit", "rent deposit", "house", "apartment", "apartments",
+    "bedsitter", "single room", "room", "accommodation", "lease", "rental", "estate", "property",
+    "property management", "realty", "homes", "plot", "compound", "security", "guard",
+    "cooking gas", "gas refill", "k gas", "pro gas", "lpg", "utilities", "utility bill"
+  ],
+  "Transport": [
+    "matatu", "boda", "bodaboda", "uber", "uber bv", "uber trip", "bolt", "bolt ride", "bolt services", "little cab", "faras", "super metro",
+    "citi hoppa", "embassava", "metro trans", "kbs", "fare", "fares", "bus", "bus fare",
+    "train", "sgr", "madaraka express", "commuter rail", "fuel", "petrol", "diesel", "shell",
+    "rubis", "totalenergies", "total energies", "vivo energy", "ola energy", "kenol", "kobil",
+    "astrol", "parking", "car wash", "taxi", "cab", "ride", "tuktuk", "mash poa", "easy coach",
+    "guardian coach", "modern coast", "dreamline", "tahmeed", "ena coach", "kenya airways",
+    "jambojet", "safarilink", "flight", "toll", "expressway", "moja expressway", "ntsa"
+  ],
+  "Academic": [
+    "fees", "school fees", "tuition", "university", "college", "campus", "printing", "print",
+    "photocopy", "photocopies", "binding", "lamination", "stationery", "textbook", "textbooks",
+    "books", "bookshop", "textbook centre", "savanis", "bookpoint", "library", "lab",
+    "laboratory", "exam", "exams", "registration", "admission", "graduation", "gown", "research",
+    "typing", "cyber", "cyber cafe", "course", "certificate", "transcript", "application fee",
+    "notebook", "calculator", "udemy", "coursera", "chegg", "strathmore", "university of nairobi",
+    "uon", "kenyatta university", "jkuat", "usiu", "daystar", "mount kenya university", "mku",
+    "moi university", "egerton", "maseno", "kca university", "multimedia university"
+  ],
+  "Airtime & Data": [
+    "safaricom", "airtel", "telkom", "faiba", "jtl", "zuku", "safaricom fibre",
+    "fibre", "poa internet", "bundles", "bundle", "bundle purchase", "data bundles", "data", "airtime",
+    "buy airtime", "credo", "tunukiwa", "sambaza", "okoa jahazi", "internet", "wifi", "mb", "gb",
+    "minutes", "sms", "bonga", "monthly bundle", "daily bundle", "weekly bundle", "router",
+    "mifi", "sim card", "sim", "top up", "topup", "recharge", "unlimited",
+    "calls", "voice bundle", "data plan", "internet bill", "fibre bill"
+  ],
+  "Entertainment": [
+    "netflix", "showmax", "spotify", "youtube premium", "apple music", "boomplay", "dstv",
+    "gotv", "startimes", "cinema", "imax", "century cinemax", "anga sky", "movie", "movies",
+    "bar", "pub", "club", "lounge", "beer", "alcohol", "liquor", "wines", "spirits", "keg",
+    "tusker", "event", "events", "concert", "ticket", "tickets", "ticketsasa", "mookh",
+    "betting", "bet", "sportpesa", "betika", "odibets", "mozzart", "betway", "shabiki",
+    "playstation", "gaming", "games", "steam", "karaoke", "bowling", "arcade", "party",
+    "outing", "nightlife", "shisha", "museum"
+  ],
+  "Health": [
+    "chemist", "pharmacy", "pharmaceuticals", "goodlife", "haltons", "mydawa", "dawa",
+    "medicine", "drugs", "clinic", "hospital", "health centre", "medical", "aga khan",
+    "nairobi hospital", "mater hospital", "mp shah", "karen hospital", "gertrudes",
+    "kenyatta national hospital", "knh", "avenue healthcare", "nhif", "sha", "shif", "dentist",
+    "dental", "optician", "optica", "glasses", "lab test", "lancet", "pathologists", "doctor",
+    "consultation", "physiotherapy", "therapy", "counselling", "medical insurance", "panadol",
+    "antibiotics", "vitamins", "first aid", "prescription", "x ray", "scan", "vaccine"
+  ],
+  "Personal Care": [
+    "barber", "barbershop", "salon", "kinyozi", "beauty", "spa", "massage", "nails", "manicure",
+    "pedicure", "braids", "hair", "hairdresser", "wig", "weave", "haircut", "shave", "laundry",
+    "dry clean", "dry cleaners", "laundromat", "gym", "fitness", "workout", "boutique",
+    "mitumba", "clothes", "clothing", "shoes", "sneakers", "bata", "lc waikiki", "mr price",
+    "defacto", "woolworths", "jumia", "kilimall", "cosmetics", "makeup", "perfume", "lotion",
+    "soap", "toiletries", "sanitary pads", "deodorant", "skincare", "tailor", "cobbler", "fashion"
+  ],
+  "Other": [
+    "church", "tithe", "offering", "sadaka", "harambee", "fundraiser", "contribution",
+    "donation", "charity", "gift", "gifts", "birthday", "wedding", "funeral", "dowry",
+    "send money", "fuliza", "mshwari", "m shwari", "kcb mpesa", "loan repayment", "loan",
+    "repayment", "tala", "zenka", "okash", "hustler fund", "sacco", "chama", "bank",
+    "equity bank", "kcb", "co op bank", "ncba", "absa", "stanbic", "family bank", "withdraw",
+    "withdrawal", "atm", "cash", "pochi", "miscellaneous", "misc", "penalty", "kra", "tax",
+    "ecitizen", "e citizen", "passport", "government"
+  ]
+}

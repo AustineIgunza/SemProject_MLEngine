@@ -1,0 +1,377 @@
+[
+ {
+  "description": "kbs branch rongai",
+  "amount": 118.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0001,
+   "Entertainment": 0.0002,
+   "Food": 0.0001,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0002,
+   "Rent": 0.0,
+   "Transport": 0.9994
+  }
+ },
+ {
+  "description": "lipa na mpesa internet bill",
+  "amount": 15.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 1.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "lipa na mpesa liquor",
+  "amount": 3280.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 1.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "property management thika road",
+  "amount": 4123.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 1.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "faras branch westlands",
+  "amount": 2782.0,
+  "probabilities": {
+   "Academic": 0.0001,
+   "Airtime & Data": 0.0003,
+   "Entertainment": 0.0004,
+   "Food": 0.0001,
+   "Health": 0.0003,
+   "Other": 0.0007,
+   "Personal Care": 0.0005,
+   "Rent": 0.0002,
+   "Transport": 0.9975
+  }
+ },
+ {
+  "description": "startimes",
+  "amount": 162.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.9996,
+   "Food": 0.0001,
+   "Health": 0.0001,
+   "Other": 0.0001,
+   "Personal Care": 0.0001,
+   "Rent": 0.0,
+   "Transport": 0.0001
+  }
+ },
+ {
+  "description": "lipa na mpesa bolt food",
+  "amount": 87.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 1.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "first aid ltd",
+  "amount": 1078.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 1.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "customer transfer to exams",
+  "amount": 21.0,
+  "probabilities": {
+   "Academic": 1.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "pro gas",
+  "amount": 686.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 1.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "merchant payment to bowling",
+  "amount": 936.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 1.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "pay bill to chemist",
+  "amount": 3407.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 1.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "pay bill to ncba",
+  "amount": 4531.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 1.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "fibre bill branch kilimani",
+  "amount": 58.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 1.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "petrol westlands",
+  "amount": 122.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0002,
+   "Entertainment": 0.0003,
+   "Food": 0.0003,
+   "Health": 0.0003,
+   "Other": 0.0002,
+   "Personal Care": 0.0003,
+   "Rent": 0.0,
+   "Transport": 0.9985
+  }
+ },
+ {
+  "description": "x ray branch kilimani",
+  "amount": 1082.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 1.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "lipa na mpesa kca university",
+  "amount": 143.0,
+  "probabilities": {
+   "Academic": 1.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "wines limited",
+  "amount": 1120.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0001,
+   "Entertainment": 0.9993,
+   "Food": 0.0001,
+   "Health": 0.0001,
+   "Other": 0.0001,
+   "Personal Care": 0.0002,
+   "Rent": 0.0001,
+   "Transport": 0.0001
+  }
+ },
+ {
+  "description": "tickets cbd",
+  "amount": 452.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0001,
+   "Entertainment": 0.9997,
+   "Food": 0.0001,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0001,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "lipa na mpesa nairobi hospital",
+  "amount": 4169.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 1.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "room branch thika road",
+  "amount": 22560.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 1.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "lipa na mpesa k gas",
+  "amount": 7377.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 1.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "buy goods loan repayment",
+  "amount": 4543.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 1.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "buy goods chicken",
+  "amount": 4577.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 1.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 0.0
+  }
+ },
+ {
+  "description": "lipa na mpesa super metro",
+  "amount": 1084.0,
+  "probabilities": {
+   "Academic": 0.0,
+   "Airtime & Data": 0.0,
+   "Entertainment": 0.0,
+   "Food": 0.0,
+   "Health": 0.0,
+   "Other": 0.0,
+   "Personal Care": 0.0,
+   "Rent": 0.0,
+   "Transport": 1.0
+  }
+ }
+]
