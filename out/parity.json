@@ -3,15 +3,15 @@
   "description": "kbs branch rongai",
   "amount": 118.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0001,
-   "Entertainment": 0.0002,
-   "Food": 0.0001,
-   "Health": 0.0,
-   "Other": 0.0,
-   "Personal Care": 0.0002,
-   "Rent": 0.0,
-   "Transport": 0.9994
+   "Academic": 0.0009,
+   "Airtime & Data": 0.0105,
+   "Entertainment": 0.0305,
+   "Food": 0.0194,
+   "Health": 0.008,
+   "Other": 0.0021,
+   "Personal Care": 0.0279,
+   "Rent": 0.0047,
+   "Transport": 0.8958
   }
  },
  {
@@ -19,7 +19,7 @@
   "amount": 15.0,
   "probabilities": {
    "Academic": 0.0,
-   "Airtime & Data": 1.0,
+   "Airtime & Data": 0.9999,
    "Entertainment": 0.0,
    "Food": 0.0,
    "Health": 0.0,
@@ -33,15 +33,15 @@
   "description": "lipa na mpesa liquor",
   "amount": 3280.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0,
-   "Entertainment": 1.0,
-   "Food": 0.0,
-   "Health": 0.0,
-   "Other": 0.0,
-   "Personal Care": 0.0,
-   "Rent": 0.0,
-   "Transport": 0.0
+   "Academic": 0.0051,
+   "Airtime & Data": 0.0014,
+   "Entertainment": 0.9471,
+   "Food": 0.0061,
+   "Health": 0.0114,
+   "Other": 0.01,
+   "Personal Care": 0.0075,
+   "Rent": 0.0088,
+   "Transport": 0.0026
   }
  },
  {
@@ -50,12 +50,12 @@
   "probabilities": {
    "Academic": 0.0,
    "Airtime & Data": 0.0,
-   "Entertainment": 0.0,
+   "Entertainment": 0.0001,
    "Food": 0.0,
-   "Health": 0.0,
-   "Other": 0.0,
+   "Health": 0.0001,
+   "Other": 0.0001,
    "Personal Care": 0.0,
-   "Rent": 1.0,
+   "Rent": 0.9996,
    "Transport": 0.0
   }
  },
@@ -63,30 +63,30 @@
   "description": "faras branch westlands",
   "amount": 2782.0,
   "probabilities": {
-   "Academic": 0.0001,
-   "Airtime & Data": 0.0003,
-   "Entertainment": 0.0004,
-   "Food": 0.0001,
-   "Health": 0.0003,
-   "Other": 0.0007,
-   "Personal Care": 0.0005,
-   "Rent": 0.0002,
-   "Transport": 0.9975
+   "Academic": 0.0101,
+   "Airtime & Data": 0.0327,
+   "Entertainment": 0.0479,
+   "Food": 0.0194,
+   "Health": 0.0452,
+   "Other": 0.0751,
+   "Personal Care": 0.0533,
+   "Rent": 0.0254,
+   "Transport": 0.6909
   }
  },
  {
   "description": "startimes",
   "amount": 162.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0,
-   "Entertainment": 0.9996,
-   "Food": 0.0001,
-   "Health": 0.0001,
-   "Other": 0.0001,
-   "Personal Care": 0.0001,
-   "Rent": 0.0,
-   "Transport": 0.0001
+   "Academic": 0.0071,
+   "Airtime & Data": 0.0103,
+   "Entertainment": 0.9048,
+   "Food": 0.0144,
+   "Health": 0.0133,
+   "Other": 0.0131,
+   "Personal Care": 0.0174,
+   "Rent": 0.0045,
+   "Transport": 0.0151
   }
  },
  {
@@ -96,42 +96,42 @@
    "Academic": 0.0,
    "Airtime & Data": 0.0,
    "Entertainment": 0.0,
-   "Food": 1.0,
+   "Food": 0.9965,
    "Health": 0.0,
    "Other": 0.0,
    "Personal Care": 0.0,
    "Rent": 0.0,
-   "Transport": 0.0
+   "Transport": 0.0034
   }
  },
  {
   "description": "first aid ltd",
   "amount": 1078.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0,
-   "Entertainment": 0.0,
-   "Food": 0.0,
-   "Health": 1.0,
-   "Other": 0.0,
-   "Personal Care": 0.0,
-   "Rent": 0.0,
-   "Transport": 0.0
+   "Academic": 0.0001,
+   "Airtime & Data": 0.0001,
+   "Entertainment": 0.0003,
+   "Food": 0.0003,
+   "Health": 0.9981,
+   "Other": 0.0001,
+   "Personal Care": 0.0004,
+   "Rent": 0.0001,
+   "Transport": 0.0003
   }
  },
  {
   "description": "customer transfer to exams",
   "amount": 21.0,
   "probabilities": {
-   "Academic": 1.0,
-   "Airtime & Data": 0.0,
+   "Academic": 0.9921,
+   "Airtime & Data": 0.0026,
    "Entertainment": 0.0,
-   "Food": 0.0,
+   "Food": 0.0018,
    "Health": 0.0,
-   "Other": 0.0,
+   "Other": 0.0017,
    "Personal Care": 0.0,
    "Rent": 0.0,
-   "Transport": 0.0
+   "Transport": 0.0017
   }
  },
  {
@@ -145,7 +145,7 @@
    "Health": 0.0,
    "Other": 0.0,
    "Personal Care": 0.0,
-   "Rent": 1.0,
+   "Rent": 0.9999,
    "Transport": 0.0
   }
  },
@@ -153,97 +153,97 @@
   "description": "merchant payment to bowling",
   "amount": 936.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0,
-   "Entertainment": 1.0,
-   "Food": 0.0,
-   "Health": 0.0,
-   "Other": 0.0,
-   "Personal Care": 0.0,
-   "Rent": 0.0,
-   "Transport": 0.0
+   "Academic": 0.0011,
+   "Airtime & Data": 0.0016,
+   "Entertainment": 0.9831,
+   "Food": 0.0023,
+   "Health": 0.0019,
+   "Other": 0.0018,
+   "Personal Care": 0.0038,
+   "Rent": 0.0019,
+   "Transport": 0.0025
   }
  },
  {
   "description": "pay bill to chemist",
   "amount": 3407.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0,
-   "Entertainment": 0.0,
-   "Food": 0.0,
-   "Health": 1.0,
-   "Other": 0.0,
-   "Personal Care": 0.0,
-   "Rent": 0.0,
-   "Transport": 0.0
+   "Academic": 0.0015,
+   "Airtime & Data": 0.0008,
+   "Entertainment": 0.0023,
+   "Food": 0.0018,
+   "Health": 0.9862,
+   "Other": 0.002,
+   "Personal Care": 0.0018,
+   "Rent": 0.0031,
+   "Transport": 0.0006
   }
  },
  {
   "description": "pay bill to ncba",
   "amount": 4531.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0,
-   "Entertainment": 0.0,
-   "Food": 0.0,
-   "Health": 0.0,
-   "Other": 1.0,
-   "Personal Care": 0.0,
-   "Rent": 0.0,
-   "Transport": 0.0
+   "Academic": 0.003,
+   "Airtime & Data": 0.0016,
+   "Entertainment": 0.0047,
+   "Food": 0.0037,
+   "Health": 0.0049,
+   "Other": 0.9708,
+   "Personal Care": 0.0038,
+   "Rent": 0.0064,
+   "Transport": 0.0012
   }
  },
  {
   "description": "fibre bill branch kilimani",
   "amount": 58.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 1.0,
+   "Academic": 0.0002,
+   "Airtime & Data": 0.9996,
    "Entertainment": 0.0,
-   "Food": 0.0,
+   "Food": 0.0001,
    "Health": 0.0,
    "Other": 0.0,
    "Personal Care": 0.0,
    "Rent": 0.0,
-   "Transport": 0.0
+   "Transport": 0.0001
   }
  },
  {
   "description": "petrol westlands",
   "amount": 122.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0002,
-   "Entertainment": 0.0003,
-   "Food": 0.0003,
-   "Health": 0.0003,
-   "Other": 0.0002,
-   "Personal Care": 0.0003,
-   "Rent": 0.0,
-   "Transport": 0.9985
+   "Academic": 0.0062,
+   "Airtime & Data": 0.0264,
+   "Entertainment": 0.042,
+   "Food": 0.0394,
+   "Health": 0.0337,
+   "Other": 0.0228,
+   "Personal Care": 0.0358,
+   "Rent": 0.0008,
+   "Transport": 0.7928
   }
  },
  {
   "description": "x ray branch kilimani",
   "amount": 1082.0,
   "probabilities": {
-   "Academic": 0.0,
+   "Academic": 0.0002,
    "Airtime & Data": 0.0,
-   "Entertainment": 0.0,
-   "Food": 0.0,
-   "Health": 1.0,
-   "Other": 0.0,
-   "Personal Care": 0.0,
-   "Rent": 0.0,
-   "Transport": 0.0
+   "Entertainment": 0.0007,
+   "Food": 0.0001,
+   "Health": 0.998,
+   "Other": 0.0001,
+   "Personal Care": 0.0002,
+   "Rent": 0.0004,
+   "Transport": 0.0003
   }
  },
  {
   "description": "lipa na mpesa kca university",
   "amount": 143.0,
   "probabilities": {
-   "Academic": 1.0,
+   "Academic": 0.9999,
    "Airtime & Data": 0.0,
    "Entertainment": 0.0,
    "Food": 0.0,
@@ -258,30 +258,30 @@
   "description": "wines limited",
   "amount": 1120.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0001,
-   "Entertainment": 0.9993,
-   "Food": 0.0001,
-   "Health": 0.0001,
-   "Other": 0.0001,
-   "Personal Care": 0.0002,
-   "Rent": 0.0001,
-   "Transport": 0.0001
+   "Academic": 0.0073,
+   "Airtime & Data": 0.015,
+   "Entertainment": 0.8666,
+   "Food": 0.0157,
+   "Health": 0.0131,
+   "Other": 0.0106,
+   "Personal Care": 0.0353,
+   "Rent": 0.0161,
+   "Transport": 0.0205
   }
  },
  {
   "description": "tickets cbd",
   "amount": 452.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0001,
-   "Entertainment": 0.9997,
-   "Food": 0.0001,
-   "Health": 0.0,
-   "Other": 0.0,
-   "Personal Care": 0.0001,
-   "Rent": 0.0,
-   "Transport": 0.0
+   "Academic": 0.0039,
+   "Airtime & Data": 0.017,
+   "Entertainment": 0.9317,
+   "Food": 0.0119,
+   "Health": 0.0036,
+   "Other": 0.0062,
+   "Personal Care": 0.0175,
+   "Rent": 0.0011,
+   "Transport": 0.0072
   }
  },
  {
@@ -292,10 +292,10 @@
    "Airtime & Data": 0.0,
    "Entertainment": 0.0,
    "Food": 0.0,
-   "Health": 1.0,
+   "Health": 0.9999,
    "Other": 0.0,
    "Personal Care": 0.0,
-   "Rent": 0.0,
+   "Rent": 0.0001,
    "Transport": 0.0
   }
  },
@@ -303,14 +303,14 @@
   "description": "room branch thika road",
   "amount": 22560.0,
   "probabilities": {
-   "Academic": 0.0,
+   "Academic": 0.0033,
    "Airtime & Data": 0.0,
    "Entertainment": 0.0,
    "Food": 0.0,
    "Health": 0.0,
    "Other": 0.0,
    "Personal Care": 0.0,
-   "Rent": 1.0,
+   "Rent": 0.9967,
    "Transport": 0.0
   }
  },
@@ -348,15 +348,15 @@
   "description": "buy goods chicken",
   "amount": 4577.0,
   "probabilities": {
-   "Academic": 0.0,
-   "Airtime & Data": 0.0,
-   "Entertainment": 0.0,
-   "Food": 1.0,
-   "Health": 0.0,
-   "Other": 0.0,
-   "Personal Care": 0.0,
-   "Rent": 0.0,
-   "Transport": 0.0
+   "Academic": 0.0036,
+   "Airtime & Data": 0.0014,
+   "Entertainment": 0.0058,
+   "Food": 0.9659,
+   "Health": 0.0059,
+   "Other": 0.0056,
+   "Personal Care": 0.0049,
+   "Rent": 0.0051,
+   "Transport": 0.0019
   }
  },
  {
@@ -371,7 +371,7 @@
    "Other": 0.0,
    "Personal Care": 0.0,
    "Rent": 0.0,
-   "Transport": 1.0
+   "Transport": 0.9998
   }
  }
 ]
