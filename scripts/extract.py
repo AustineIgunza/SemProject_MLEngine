@@ -4,7 +4,7 @@ Reads password-protected statement PDFs from data/raw/, pulls the transaction
 table, keeps money-out rows (income is not classified in v1), anonymises the
 description and drops everything else (receipt no., time, balance).
 
-Usage:  python extract.py <pdf-password>
+Usage:  python scripts/extract.py <pdf-password>
 
 Then label the `category` column by hand and save the result as
 data/test_real.csv. Use exactly the nine category names in lexicon.json.
@@ -17,7 +17,7 @@ from pathlib import Path
 
 import pdfplumber
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = ROOT / "data" / "raw"
 OUT = ROOT / "data" / "to_label.csv"
 
@@ -88,7 +88,7 @@ def extract(pdf_path: Path, password: str) -> list[tuple[str, float]]:
 
 def main() -> None:
     if len(sys.argv) != 2:
-        raise SystemExit("Usage: python extract.py <pdf-password>")
+        raise SystemExit("Usage: python scripts/extract.py <pdf-password>")
     password = sys.argv[1]
 
     pdfs = sorted(RAW_DIR.glob("*.pdf"))

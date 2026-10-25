@@ -9,7 +9,7 @@ Each row also carries the source `keyword`, so train.py can cross-validate with
 GroupKFold — a fold never sees a merchant it is tested on, which keeps the CV
 score from being inflated by near-duplicate rows.
 
-Usage:  python generate.py
+Usage:  python scripts/generate.py
 """
 
 import csv
@@ -19,7 +19,7 @@ import random
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parent.parent
 LEXICON = ROOT / "lexicon.json"
 OUT = ROOT / "data" / "train.csv"
 
