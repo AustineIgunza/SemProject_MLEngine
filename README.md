@@ -17,6 +17,8 @@ pure TypeScript.
 |---|---|
 | `notebooks/Expenses_Exploration.ipynb` | Deliverable 1 — exploration of the Kaggle `Expenses_clean.csv` dataset |
 | `notebooks/NaiveBayes_Base.ipynb` | Deliverable 2 — base model: data cleaning, EDA, Multinomial Naive Bayes, model comparison |
+| `data/Expenses_clean.csv` | Kaggle *Financial Transactions Dataset* — 938 expense rows, 14 categories, BYN; explored in Deliverable 1 (no description column, so not used for training) |
+| `data/Income_clean.csv` | Same Kaggle dataset — 349 income rows, 7 categories, BYN; committed for reference (income is not classified in v1) |
 | `lexicon.json` | Hand-built merchant/keyword list per category — **the quality of the whole model rests on this** |
 | `scripts/generate.py` | Expands the lexicon into M-Pesa-style training rows (bootstrap; seeded, reproducible) |
 | `scripts/extract.py` | Pulls money-out rows from M-Pesa PDF statements and anonymises them |
