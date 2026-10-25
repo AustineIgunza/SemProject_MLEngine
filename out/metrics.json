@@ -1,0 +1,140 @@
+{
+  "shipped_model": "count_nb",
+  "nb_alpha": 0.05,
+  "train_rows": 5587,
+  "test_rows": 0,
+  "train_source": "synthetic bootstrap from lexicon.json (generate.py)",
+  "test_source": null,
+  "classes": [
+    "Academic",
+    "Airtime & Data",
+    "Entertainment",
+    "Food",
+    "Health",
+    "Other",
+    "Personal Care",
+    "Rent",
+    "Transport"
+  ],
+  "models": {
+    "baseline_most_frequent": {
+      "cv_macro_f1_train": 0.0132
+    },
+    "count_nb": {
+      "cv_macro_f1_train": 0.3399
+    },
+    "tfidf_logreg": {
+      "cv_macro_f1_train": 0.3518
+    }
+  },
+  "top_terms": {
+    "Academic": [
+      "university",
+      "fees",
+      "cyber",
+      "textbook",
+      "bookpoint",
+      "textbooks",
+      "savanis",
+      "certificate",
+      "school",
+      "strathmore"
+    ],
+    "Airtime & Data": [
+      "bundle",
+      "data",
+      "fibre",
+      "internet",
+      "sim",
+      "airtime",
+      "safaricom",
+      "bundles",
+      "zuku",
+      "daily"
+    ],
+    "Entertainment": [
+      "youtube",
+      "cinema",
+      "club",
+      "karaoke",
+      "alcohol",
+      "anga",
+      "wines",
+      "concert",
+      "century",
+      "spotify"
+    ],
+    "Food": [
+      "pizza",
+      "inn",
+      "food",
+      "chicken",
+      "artcaffe",
+      "mboga",
+      "nyama",
+      "magunas",
+      "bakery",
+      "kibanda"
+    ],
+    "Health": [
+      "hospital",
+      "medical",
+      "pathologists",
+      "healthcare",
+      "test",
+      "health",
+      "antibiotics",
+      "panadol",
+      "dental",
+      "glasses"
+    ],
+    "Other": [
+      "bank",
+      "loan",
+      "kcb",
+      "repayment",
+      "absa",
+      "contribution",
+      "equity",
+      "family",
+      "ecitizen",
+      "e"
+    ],
+    "Personal Care": [
+      "dry",
+      "woolworths",
+      "wig",
+      "mitumba",
+      "clothes",
+      "deodorant",
+      "cosmetics",
+      "workout",
+      "bata",
+      "kinyozi"
+    ],
+    "Rent": [
+      "gas",
+      "kplc",
+      "water",
+      "rent",
+      "deposit",
+      "room",
+      "token",
+      "house",
+      "property",
+      "garbage"
+    ],
+    "Transport": [
+      "coach",
+      "cab",
+      "metro",
+      "fare",
+      "expressway",
+      "bus",
+      "energy",
+      "ride",
+      "uber",
+      "bolt"
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+# Never commit raw bank/M-Pesa statements or un-anonymised exports.
+raw/
+raw_*.csv
+*.pdf
