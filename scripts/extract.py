@@ -6,8 +6,10 @@ description and drops everything else (receipt no., time, balance).
 
 Usage:  python scripts/extract.py <pdf-password>
 
-Then label the `category` column by hand and save the result as
-data/test_real.csv. Use exactly the nine category names in lexicon.json.
+Then label the `category` column by hand, using Akiba's nine category names:
+Food, Rent, Transport, Academic, Airtime & Data, Entertainment, Health,
+Personal Care, Other. These rows are for the future text-based model;
+train.py does not read them yet.
 """
 
 import csv

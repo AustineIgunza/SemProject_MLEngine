@@ -1,103 +1,126 @@
-"""Classify a transaction with the exported model — no sklearn required.
+"""Suggest an Akiba category for one expense with out/model.json. No scikit-learn needed.
 
-Loads out/model.json (the same file the TypeScript runtime uses) and runs
-Multinomial Naive Bayes inference directly, so you can try the shipped model
-on any description without retraining.
+Pure Python: it builds the same 6 features as features.py and runs Multinomial
+Naive Bayes on the probabilities exported by export.py.
 
 Usage:
-    python scripts/predict.py "naivas westlands" 1240
-    python scripts/predict.py              # interactive mode
+    python scripts/predict.py --amount 5 --date 2025-06-14 --account acct_1 --tag tag_1
+    python scripts/predict.py --check     # compare with scikit-learn on out/parity.json
 """
 
+import argparse
 import json
 import math
-import sys
+from datetime import date
 from pathlib import Path
 
-MODEL = Path(__file__).resolve().parent.parent / "out" / "model.json"
+ROOT = Path(__file__).resolve().parent.parent
+MODEL = ROOT / "out" / "model.json"
+PARITY = ROOT / "out" / "parity.json"
+
+DAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+LOW_CONFIDENCE = 0.6
+TOLERANCE = 1e-4
 
 
-def load():
-    if not MODEL.exists():
-        raise SystemExit(f"{MODEL} not found. Run `python scripts/train.py && python scripts/export.py` first.")
-    return json.loads(MODEL.read_text(encoding="utf-8"))
+def load(path: Path):
+    if not path.exists():
+        raise SystemExit(f"{path} not found. Run python scripts/train.py and python scripts/export.py first.")
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
-def to_tokens(description: str, amount: float, model: dict) -> list[str]:
-    """Mirrors features.py: clean -> amount bucket -> unigrams + bigrams."""
-    text = "".join(ch if "a" <= ch <= "z" or ch.isspace() else " " for ch in description.lower())
-    words = text.split()
-
-    value = abs(float(amount or 0))
-    bucket = model["amount_buckets"][-1][2]
-    for low, high, token in model["amount_buckets"]:
-        if high is None or value < high:
-            bucket = token
-            break
-    words.append(bucket)
-
-    lo, hi = model["ngram_range"]
-    tokens = []
-    for n in range(lo, hi + 1):
-        tokens += [" ".join(words[i:i + n]) for i in range(len(words) - n + 1)]
-    return tokens
+def features(amount: float, day: date, account: str, tag: str, model: dict) -> dict:
+    """The same 6 features as build_features() in features.py."""
+    edges, labels = model["amount_bin_edges"], model["amount_bin_labels"]
+    amount_bin = next((label for label, upper in zip(labels, edges[1:]) if amount <= upper), labels[-1])
+    return {
+        "amount_bin": amount_bin,
+        "day_of_week": DAY_NAMES[day.weekday()],
+        "month": day.month,
+        "is_weekend": int(day.weekday() >= 5),
+        "account": account,
+        "tags": tag,
+    }
 
 
-def predict(description: str, amount: float, model: dict):
-    vocab, log_prob = model["vocabulary"], model["feature_log_prob"]
+def predict(values: dict, model: dict) -> tuple[list, list]:
+    """Return [(category, probability)] from most to least likely, and the unseen features."""
     scores = list(model["class_log_prior"])
-    hits = []
-    for token in to_tokens(description, amount, model):
-        idx = vocab.get(token)
-        if idx is not None:
-            hits.append(token)
-            for c in range(len(scores)):
-                scores[c] += log_prob[c][idx]
+    column, unseen = 0, []
+    for name in model["features"]:
+        seen = model["categories"][name]
+        if values[name] in seen:
+            j = column + seen.index(values[name])
+            scores = [s + row[j] for s, row in zip(scores, model["feature_log_prob"])]
+        else:
+            unseen.append(name)  # like OneHotEncoder(handle_unknown="ignore")
+        column += len(seen)
 
     top = max(scores)
-    exp = [math.exp(s - top) for s in scores]
-    total = sum(exp)
-    probs = sorted(zip(model["classes"], [e / total for e in exp]),
-                   key=lambda kv: kv[1], reverse=True)
-    return probs, hits
+    weights = [math.exp(s - top) for s in scores]
+    total = sum(weights)
+    probs = [(c, w / total) for c, w in zip(model["classes"], weights)]
+    return sorted(probs, key=lambda cp: cp[1], reverse=True), unseen
 
 
-def show(description: str, amount: float, model: dict) -> None:
-    probs, hits = predict(description, amount, model)
-    label, confidence = probs[0]
-    print(f'\n  "{description}"   KES {amount:,.0f}')
-    print(f"  -> {label}   ({confidence:.1%} confident)\n")
-    for name, p in probs[:4]:
-        bar = "#" * round(p * 36)
-        print(f"    {name:<16}{p:6.1%}  {bar}")
-    known = [h for h in hits if " " not in h and not h.startswith("amt_")]
-    print(f"\n    matched terms: {', '.join(known) if known else '(none — unknown merchant)'}")
-    if confidence < 0.60:
-        print("    LOW CONFIDENCE — this one should be confirmed by the user.")
+def show(args, model: dict) -> None:
+    day = date.fromisoformat(args.date)
+    values = features(args.amount, day, args.account, args.tag, model)
+    probs, unseen = predict(values, model)
+    category, confidence = probs[0]
+
+    print(f"Expense:  {args.amount:g} BYN on {DAY_NAMES[day.weekday()]} {day}, {args.account}, {args.tag}")
+    print("Features:", ", ".join(f"{k}={v}" for k, v in values.items()))
+    if unseen:
+        print("Not seen in training, so ignored:", ", ".join(unseen))
+    print(f"\nPredicted category: {category} ({confidence:.1%} confident)")
+    if confidence < LOW_CONFIDENCE:
+        print("Low confidence: Akiba should ask the student to confirm the category.")
+    print("\nTop 4 alternatives:")
+    for name, p in probs[1:5]:
+        print(f"  {name:<15}{p:6.1%}")
+
+
+def check(model: dict) -> None:
+    rows = load(PARITY)
+    worst, label_matches = 0.0, 0
+    for row in rows:
+        values = features(row["amount"], date.fromisoformat(row["date"]), row["account"], row["tag"], model)
+        probs, _ = predict(values, model)
+        mine = dict(probs)
+        worst = max(worst, max(abs(mine[c] - p) for c, p in row["probabilities"].items()))
+        label_matches += probs[0][0] == row["predicted"]
+
+    passed = worst <= TOLERANCE and label_matches == len(rows)
+    print(f"Parity with scikit-learn on {len(rows)} real rows: largest probability difference "
+          f"{worst:.1e} (tolerance {TOLERANCE:g}), same prediction on {label_matches}/{len(rows)}")
+    print("PASS" if passed else "FAIL")
+    if not passed:
+        raise SystemExit(1)
 
 
 def main() -> None:
-    model = load()
-    print(f"Model v{model['version']}  trained {model['trained_at']}  "
-          f"{len(model['vocabulary']):,} terms  {len(model['classes'])} classes")
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--amount", type=float, help="amount in BYN, above 0")
+    parser.add_argument("--date", help="date of the expense, YYYY-MM-DD")
+    parser.add_argument("--account", help="account, e.g. acct_1")
+    parser.add_argument("--tag", help="tag, e.g. tag_1")
+    parser.add_argument("--check", action="store_true", help="compare with out/parity.json")
+    args = parser.parse_args()
 
-    if len(sys.argv) >= 2:
-        show(sys.argv[1], float(sys.argv[2]) if len(sys.argv) > 2 else 0, model)
+    model = load(MODEL)
+    if args.check:
+        check(model)
         return
-
-    print("Enter a description and amount. Blank line to quit.")
-    while True:
-        try:
-            line = input("\ndescription> ").strip()
-        except EOFError:
-            break
-        if not line:
-            break
-        try:
-            amount = float(input("amount (KES)> ").strip() or 0)
-        except ValueError:
-            amount = 0
-        show(line, amount, model)
+    if None in (args.amount, args.date, args.account, args.tag):
+        parser.error("--amount, --date, --account and --tag are all required")
+    if args.amount <= 0:
+        parser.error("--amount must be above 0")
+    try:
+        date.fromisoformat(args.date)
+    except ValueError:
+        parser.error(f"--date must be YYYY-MM-DD, got {args.date!r}")
+    show(args, model)
 
 
 if __name__ == "__main__":
