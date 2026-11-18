@@ -1,155 +1,73 @@
 {
-  "shipped_model": "count_nb",
-  "cv": "5-fold stratified k-fold, shuffled, random_state=42",
-  "train_rows": 5587,
-  "test_rows": 0,
-  "train_source": "synthetic bootstrap from lexicon.json (generate.py)",
-  "test_source": null,
+  "data": "data/Expenses_clean.csv (Kaggle Financial Transactions Dataset, expenses)",
+  "rows_raw": 938,
+  "rows_used": 924,
+  "zero_amount_rows_dropped": 14,
+  "features": [
+    "amount_bin",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "account",
+    "tags"
+  ],
   "classes": [
     "Academic",
-    "Airtime & Data",
     "Entertainment",
     "Food",
     "Health",
     "Other",
     "Personal Care",
-    "Rent",
     "Transport"
   ],
+  "class_counts": {
+    "Transport": 475,
+    "Food": 301,
+    "Other": 80,
+    "Entertainment": 30,
+    "Health": 22,
+    "Academic": 9,
+    "Personal Care": 7
+  },
+  "cv": "StratifiedKFold(n_splits=5, shuffle=True, random_state=42)",
+  "majority_class_accuracy": 0.5141,
+  "shipped_model": "naive_bayes",
   "models": {
-    "count_nb": {
-      "cv_accuracy_train": 0.9746,
-      "cv_accuracy_std": 0.0032
+    "naive_bayes": {
+      "cv_accuracy": 0.7749,
+      "cv_accuracy_std": 0.0071,
+      "cv_macro_f1": 0.3093,
+      "cv_macro_f1_std": 0.0072
     },
     "logistic_regression": {
-      "cv_accuracy_train": 0.9998,
-      "cv_accuracy_std": 0.0004
+      "cv_accuracy": 0.7825,
+      "cv_accuracy_std": 0.0072,
+      "cv_macro_f1": 0.3277,
+      "cv_macro_f1_std": 0.0248
     },
     "decision_tree": {
-      "cv_accuracy_train": 0.9042,
-      "cv_accuracy_std": 0.0109
+      "cv_accuracy": 0.7327,
+      "cv_accuracy_std": 0.0224,
+      "cv_macro_f1": 0.3218,
+      "cv_macro_f1_std": 0.0431
     },
     "knn": {
-      "cv_accuracy_train": 0.2577,
-      "cv_accuracy_std": 0.0163
+      "cv_accuracy": 0.7392,
+      "cv_accuracy_std": 0.0065,
+      "cv_macro_f1": 0.2974,
+      "cv_macro_f1_std": 0.0222
     },
     "random_forest": {
-      "cv_accuracy_train": 0.9535,
-      "cv_accuracy_std": 0.0067
+      "cv_accuracy": 0.7565,
+      "cv_accuracy_std": 0.0178,
+      "cv_macro_f1": 0.3333,
+      "cv_macro_f1_std": 0.0168
     },
     "gradient_boosting": {
-      "cv_accuracy_train": 0.9993,
-      "cv_accuracy_std": 0.0009
+      "cv_accuracy": 0.7695,
+      "cv_accuracy_std": 0.0165,
+      "cv_macro_f1": 0.3478,
+      "cv_macro_f1_std": 0.0428
     }
-  },
-  "top_terms": {
-    "Academic": [
-      "university",
-      "cyber",
-      "textbook",
-      "fees",
-      "books",
-      "bookshop",
-      "campus",
-      "school",
-      "stationery",
-      "savanis"
-    ],
-    "Airtime & Data": [
-      "bundle",
-      "internet",
-      "data",
-      "fibre",
-      "safaricom",
-      "bundles",
-      "airtime",
-      "sim",
-      "purchase",
-      "wifi"
-    ],
-    "Entertainment": [
-      "boomplay",
-      "event",
-      "steam",
-      "wines",
-      "cinemax",
-      "startimes",
-      "youtube",
-      "anga",
-      "club",
-      "betika"
-    ],
-    "Food": [
-      "pizza",
-      "chicken",
-      "inn",
-      "food",
-      "jaza",
-      "kenchic",
-      "chapati",
-      "chandarana",
-      "choma",
-      "king"
-    ],
-    "Health": [
-      "hospital",
-      "medical",
-      "aga",
-      "therapy",
-      "aid",
-      "x",
-      "health",
-      "insurance",
-      "healthcare",
-      "chemist"
-    ],
-    "Other": [
-      "bank",
-      "loan",
-      "kcb",
-      "repayment",
-      "zenka",
-      "government",
-      "wedding",
-      "withdraw",
-      "charity",
-      "citizen"
-    ],
-    "Personal Care": [
-      "dry",
-      "kilimall",
-      "kinyozi",
-      "laundromat",
-      "sneakers",
-      "skincare",
-      "laundry",
-      "tailor",
-      "salon",
-      "cobbler"
-    ],
-    "Rent": [
-      "gas",
-      "water",
-      "rent",
-      "kplc",
-      "token",
-      "property",
-      "deposit",
-      "room",
-      "house",
-      "electricity"
-    ],
-    "Transport": [
-      "coach",
-      "uber",
-      "bolt",
-      "bus",
-      "cab",
-      "fare",
-      "ride",
-      "energy",
-      "expressway",
-      "metro"
-    ]
   }
 }
